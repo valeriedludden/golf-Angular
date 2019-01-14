@@ -1,0 +1,46 @@
+<p>
+  course-list works!
+</p>
+<div *ngFor='let courses of courseObject'>{{courses.name}}</div>
+<mat-card *ngFor='let courses of courseObject'>
+ <div>
+   <img src='{{ courses.image }}'>
+ </div>
+  <button mat-raised-button (click)="display()">{{ courses.name }}</button>
+  <!--<button mat-raised-button [chosenCourse]="this.result" (click)="display()">{{ courses.name }}</button>-->
+  <button mat-raised-button>{{ courses.id }}</button>
+
+</mat-card>
+
+<button *ngFor='let courses of courseObject'>{{courses.name}}</button>
+<!--<div *ngFor='let hole of course'>{{data.hole.[0].par}}</div>-->
+
+
+<!--<pre *ngIf="course">-->
+  <!--{{course}}-->
+<!--</pre>-->
+
+
+<!--<mat-list>-->
+  <!--<mat-list-item-->
+    <!--*ngFor="-->
+        <!--let character of (characters | async | character: characterFilter)-->
+      <!--"-->
+    <!--(click)="goToCharacter(character.id)"-->
+  <!--&gt;-->
+    <!--<img-->
+      <!--mat-list-avatar-->
+      <!--[src]="character.avatar"-->
+      <!--[alt]="character.name | lowercase"-->
+    <!--/>-->
+    <!--<h3 mat-line>{{ character.name | uppercase }}</h3>-->
+    <!--<div mat-line *ngIf="!hideDetails">-->
+      <!--<span>{{ character.gender }}</span>-->
+      <!--<span>{{ character.birth_year }}</span>-->
+      <!--<swc-force-->
+        <!--(onForceChange)="updateForce(character, $event)"-->
+        <!--[forceStrength]="character.force"-->
+      <!--&gt;</swc-force>-->
+    <!--</div>-->
+  <!--</mat-list-item>-->
+<!--</mat-list>-->

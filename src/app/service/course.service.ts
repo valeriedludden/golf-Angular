@@ -10,6 +10,7 @@ import {Course} from "../course/course";
 @Injectable({
   providedIn: 'root'
 })
+
 export class CourseService {
 
   private courseUrl = 'http://golf-courses-api.herokuapp.com/courses';
@@ -22,9 +23,7 @@ export class CourseService {
     return this.http.get<object>(this.courseUrl);
   }
 
-  getCourse(id: number){
+  getCourse(id: number): Observable<object> {
     return this.http.get<object>(this.courseUrl + `/${id}`);
   }
 }
-
-

@@ -13,38 +13,50 @@ export class CourseListComponent implements OnInit {
   courses$: Observable<Course[]>;
   courseObject: object;
   course: object;
-  result: any;
+  apiResult: any;
   coursePar: number;
   courseTee: number;
+  courseId: number;
   id: number;
+  resultCourse: any;
+  info: any;
 
   constructor(private courseService: CourseService) { }
 
   ngOnInit() {
     this.getApi();
-    // console.log(this.courseObject);
   }
 
   getApi(){
-    console.log(this.courseObject);
-    console.log('get');
-
-    this.result = this.courseService.getCourseAPI()
+    this.apiResult = this.courseService.getCourseAPI()
       .subscribe(data => this.courseObject = data['courses']);
-    console.log(this.courseObject);
-    return this.result;
+    return this.apiResult;
   }
-  display(){
-    console.log(this.courseService.getCourse(this.id)
-       .subscribe(data => this.courseObject = data['courses']));
-    // console.log(this.result[]);
-     console.log('hi');
-     console.log('hello');
+
+  getCourseInfo(id: number){
+     id = this.courseId;
+    return this.courseService.getCourse(id)
+      .subscribe(response => this.course = response['data']['holes'][0]['teeBoxes']);
+  }
+  // display(){
+  //   this.resultCourse = this.getCourseInfo(this.courseId);
+  //   console.log(this.courseId + " ...after call");
+  // }
+  // getID(){
+  //   return this.courseId;
+  // }
+
+  // getCourseInfo(id: number){
+  //   this.result = this.courseService.getCourse(id)
+  //     .subscribe(data => this.course = data['data']['holes'][0]['teeBoxes']);
+  //   console.log(this.course + ' ...hole')
+  // }
+  displayCourses(){
 
   }
-  getCourseInfo(){
-
-  }
+  // display(){
+  //
+  // }
   // getCourseId(){
   //   return this.
   // }

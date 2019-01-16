@@ -12,7 +12,7 @@ import {
   MatCardModule,
   MatFormFieldModule,
   MatIconModule,
-  MatInputModule, MatOptionModule, MatSelectModule,
+  MatInputModule, MatOptionModule, MatSelectModule, MatTableModule,
   MatToolbarModule
 } from "@angular/material";
 import {FormsModule} from "@angular/forms";
@@ -21,6 +21,7 @@ import { GameSetUpComponent } from './game-set-up/game-set-up.component';
 import { ScorecardComponent } from './scorecard/scorecard.component';
 import { CourseListComponent } from './course/course-list/course-list.component';
 import {HttpClientModule} from "@angular/common/http";
+import { PlayerComponent } from './player/player.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import {HttpClientModule} from "@angular/common/http";
     WelcomeComponent,
     GameSetUpComponent,
     ScorecardComponent,
-    CourseListComponent
+    CourseListComponent,
+    PlayerComponent
   ],
   imports: [
     BrowserModule,
@@ -47,7 +49,9 @@ import {HttpClientModule} from "@angular/common/http";
     MatIconModule,
     HttpClientModule,
     MatOptionModule,
-    MatSelectModule
+    MatSelectModule,
+    MatTableModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { CourseService} from "../service/course.service";
+import {Course} from "../course/course";
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-scorecard',
@@ -7,7 +10,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ScorecardComponent implements OnInit {
 
-  constructor() { }
+  courses$: Observable<Course[]>;
+  courseObject: object;
+  numPlayers: number;
+  course: object;
+  id: number;
+  selectedTeeBox: any;
+  hole: any;
+
+  constructor(private courseService: CourseService) { }
 
   ngOnInit() {
   }

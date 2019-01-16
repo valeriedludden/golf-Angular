@@ -1,0 +1,22 @@
+
+<!--<mat-card *ngIf="player$ | async as player">-->
+  <mat-card>
+    <mat-card-title>Players</mat-card-title>
+      <div>
+        <mat-form-field>
+          <input type="text" matInput [(ngModel)]="player.name" placeholder="Player Name" required>
+         </mat-form-field>
+      </div>
+        <!--<button color="acccent" mat-fab><mat-icon>add</mat-icon></button>-->
+        <!--<button mat-raised-button color="primary">Save PLayer</button>-->
+  </mat-card>
+<mat-card>
+  <mat-card-actions align="right">
+    <button color="acccent" mat-fab><mat-icon>+</mat-icon></button>
+    <button mat-raised-button color="primary"(click)="editPlayer(player)">Save Changes</button>
+    <button mat-raised-button color="primary" (click)="savePlayer(player)"
+            *ngIf="isNew">Save</button>
+    <button mat-raised-button color="accent"(click)="removePlayer()">Remove</button>
+  </mat-card-actions>
+</mat-card>
+

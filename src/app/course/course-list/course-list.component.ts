@@ -14,12 +14,10 @@ export class CourseListComponent implements OnInit {
   courseObject: object;
   course: object;
   apiResult: any;
-  coursePar: number;
-  courseTee: number;
   courseId: number;
   id: number;
-  resultCourse: any;
-  info: any;
+  selectedTeeBox: any;
+  hole: any;
 
   constructor(private courseService: CourseService) { }
 
@@ -33,17 +31,13 @@ export class CourseListComponent implements OnInit {
     return this.apiResult;
   }
 
-  getCourseInfo(id: number){
-     id = this.courseId;
-    return this.courseService.getCourse(id)
-      .subscribe(response => this.course = response['data']['holes'][0]['teeBoxes']);
+  getCourseInfo(){
+    return this.courseService.getCourse(this.courseId)
+      .subscribe(response => this.course = response['data']);
   }
   // display(){
   //   this.resultCourse = this.getCourseInfo(this.courseId);
   //   console.log(this.courseId + " ...after call");
-  // }
-  // getID(){
-  //   return this.courseId;
   // }
 
   // getCourseInfo(id: number){

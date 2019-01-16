@@ -1,63 +1,16 @@
-<!--<p>-->
-  <!--course-list works!-->
-<!--</p>-->
-<!--<div *ngFor='let courses of courseObject'>{{courses.name}}</div>-->
-<!--<mat-card *ngFor='let courses of courseObject'>-->
- <!--<div>-->
-   <!--<img src='{{ courses.image }}'>-->
- <!--</div>-->
-  <!--<button mat-raised-button (click)="getCourseInfo(id)">{{ courses.name }}</button>-->
-  <!--&lt;!&ndash;<button mat-raised-button [(ngModel)]="courseId" (click)="getCourseInfo(id)">{{ courses.name }}</button>&ndash;&gt;-->
-  <!--&lt;!&ndash;<button mat-raised-button (click)="getCourseInfo()">pick course</button>&ndash;&gt;-->
-  <!--<button mat-raised-button>{{ courses.id }}</button>-->
-
-<!--</mat-card>-->
-
-<!--<button *ngFor='let courses of courseObject'>{{courses.name}}</button>-->
-
-<!--<div *ngFor='let courses of courseObject'>{{courses.name}}</div>-->
-<!--<mat-card *ngFor='let courses of courseObject'>-->
-  <!--<div>-->
-    <!--<img src='{{ courses.image }}'>-->
-  <!--</div>-->
-  <!--<button mat-raised-button (click)="display()">{{ courses.name }}</button>-->
-  <!--&lt;!&ndash;<button mat-raised-button [chosenCourse]="this.result" (click)="display()">{{ courses.name }}</button>&ndash;&gt;-->
-  <!--<button mat-raised-button>{{ courses.id }}</button>-->
-<!--</mat-card>-->
 
 <mat-card>
   <mat-form-field>
-    <mat-select [(ngModel)]="courseId" (selectionChange)="getCourseInfo(id)" placeholder="Choose Course" >
-      <!--<mat-option [value]="undefined">All</mat-option>-->
-      <!--<mat-option *ngFor="let company of companies$ | async" [value]="company.$key">{{company.name}}</mat-option>-->
-      <mat-option *ngFor='let courses of courseObject'>{{ courses.name}}</mat-option>
+    <mat-select [(ngModel)]="courseId" (selectionChange)="getCourseInfo()" placeholder="Choose Course" >
+      <mat-option *ngFor='let course of courseObject' [value]="course.id">{{ course.name}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-select [(ngModel)]="selectedTeeBox" placeholder="Choose Tee Box" >
+      <mat-option *ngFor='let tee of course?.holes[0].teeBoxes; index as index' [value]="index">{{ tee.teeType }}</mat-option>
     </mat-select>
   </mat-form-field>
 </mat-card>
-<!--<button *ngFor='let courses of courseObject'>{{courses.name}}</button>-->
 
-
-
-<!--<mat-list>-->
-  <!--<mat-list-item-->
-    <!--*ngFor="-->
-        <!--let character of (characters | async | character: characterFilter)-->
-      <!--"-->
-    <!--(click)="goToCharacter(character.id)"-->
-  <!--&gt;-->
-    <!--<img-->
-      <!--mat-list-avatar-->
-      <!--[src]="character.avatar"-->
-      <!--[alt]="character.name | lowercase"-->
-    <!--/>-->
-    <!--<h3 mat-line>{{ character.name | uppercase }}</h3>-->
-    <!--<div mat-line *ngIf="!hideDetails">-->
-      <!--<span>{{ character.gender }}</span>-->
-      <!--<span>{{ character.birth_year }}</span>-->
-      <!--<swc-force-->
-        <!--(onForceChange)="updateForce(character, $event)"-->
-        <!--[forceStrength]="character.force"-->
-      <!--&gt;</swc-force>-->
-    <!--</div>-->
-  <!--</mat-list-item>-->
-<!--</mat-list>-->
+<div *ngFor='let hole of course?.holes'> {{ hole.teeBoxes[selectedTeeBox]?.yards }}</div>

@@ -13,6 +13,8 @@ import {Course} from "../course/course";
 
 export class CourseService {
 
+  game: Course;
+
   private courseUrl = 'http://golf-courses-api.herokuapp.com/courses';
 
   constructor(private http: HttpClient) {
@@ -26,6 +28,8 @@ export class CourseService {
   getCourse(id: number): Observable<object> {
     return this.http.get<object>(this.courseUrl + `/${id}`);
   }
+
+
 
 }
 

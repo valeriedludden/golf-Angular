@@ -16,7 +16,7 @@ export class PlayerComponent implements OnInit {
   constructor(private playerService: PlayerService) { }
 
   ngOnInit() {
-    this.playerGroup$ = this.playerService.getPlayerGroupObservable();
+    // this.playerGroup$ = this.playerService.getPlayerGroupObservable();
   }
 
 }

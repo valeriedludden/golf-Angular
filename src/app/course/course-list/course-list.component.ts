@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {Observable} from "rxjs";
 import {Course} from "../course";
 import {CourseService} from "../../service/course.service";
+import {Player} from "../../models/player-interface";
+import {async} from "rxjs/internal/scheduler/async";
 
 @Component({
   selector: 'app-course-list',
@@ -18,63 +20,44 @@ export class CourseListComponent implements OnInit {
   id: number;
   selectedTeeBox: any;
   hole: any;
+  numPlayer: number;
+  playerArray: Array<Player> = [];
+  //player: Player;
 
-  constructor(private courseService: CourseService) { }
+player: Player = {
+  name: 'Player name here',
+  hole: [0],
+  inScore: 0,
+  outScore: 0,
+  totalScore: 0,
+  parComparison: 0,
+  id: 0
+};
+
+  constructor(private courseService: CourseService) {
+  }
 
   ngOnInit() {
     this.getApi();
   }
 
-  getApi(){
+  getApi() {
     this.apiResult = this.courseService.getCourseAPI()
       .subscribe(data => this.courseObject = data['courses']);
     return this.apiResult;
   }
 
-  getCourseInfo(){
+  getCourseInfo() {
     return this.courseService.getCourse(this.courseId)
       .subscribe(response => this.course = response['data']);
   }
-  // display(){
-  //   this.resultCourse = this.getCourseInfo(this.courseId);
-  //   console.log(this.courseId + " ...after call");
-  // }
 
-  // getCourseInfo(id: number){
-  //   this.result = this.courseService.getCourse(id)
-  //     .subscribe(data => this.course = data['data']['holes'][0]['teeBoxes']);
-  //   console.log(this.course + ' ...hole')
-  // }
-  displayCourses(){
-
+  getPlayerArray() {
+    for (let i = 0; i < this.numPlayer; i++) {
+      this.playerArray[i] = this.player;
+      console.log(this.playerArray);
+    }
   }
-  // display(){
-  //
-  // }
-  // getCourseId(){
-  //   return this.
-  // }
-  // getCourse(id){
-  //   console.log(this.course);
-  //   return this.courseService.getCourse(id)
-  //     .subscribe(response => this.course = response['data']);
-  // }
-
-  // getCourseById(id: number): any {
-  //   let parent = this;
-  //   this.courseService.getCourse(id).subscribe(
-  //     function(res) {
-  //       parent.setResult(res);
-  //     }
-  //   );
-  //   return this.result;
-  // }
-  //
-  // setResult(res: any) {
-  //   this.result = res;
-  // }
-  // goToCharacter(characterId: string) {
-  //   this.router.navigate([`/characters/${characterId}`]);
-  // }
-
 }
+
+

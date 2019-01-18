@@ -5,18 +5,31 @@
       <mat-option *ngFor='let course of courseObject' [value]="course.id">{{ course.name}}</mat-option>
     </mat-select>
   </mat-form-field>
-
+</mat-card>
+<mat-card>
   <mat-form-field>
     <mat-select [(ngModel)]="selectedTeeBox" placeholder="Choose Tee Box" >
       <mat-option *ngFor='let tee of course?.holes[0].teeBoxes; index as index' [value]="index">{{ tee.teeType }}</mat-option>
     </mat-select>
   </mat-form-field>
 </mat-card>
+<mat-card>
+<mat-form-field>
+  <mat-select [(ngModel)]="numPlayer" (selectionChange)="getPlayerArray()" placeholder="How Many Players">
+    <mat-option  value= 1>1</mat-option>
+    <mat-option  value= 2>2</mat-option>
+    <mat-option  value= 3>3</mat-option>
+    <mat-option  value= 4>4</mat-option>
+  </mat-select>
+</mat-form-field>
+</mat-card>
 <!--<mat-card>-->
-  <!--<mat-header-row></mat-header-row>-->
-  <!--<div> Hole 1</div>-->
-  <!--<mat-table>-->
-  <!--</mat-table>-->
+  <!--<mat-form-field>-->
+    <!--<input *ngFor='let player of players?' type="text" matInput [(ngModel)]="player.name" placeholder="Player Name" required>-->
+  <!--</mat-form-field>-->
 <!--</mat-card>-->
+
+
+
 <div *ngFor='let hole of course?.holes'> {{ hole.teeBoxes[selectedTeeBox]?.yards }}</div>
 

@@ -9,40 +9,40 @@ import {map} from "rxjs/operators";
   providedIn: 'root'
 })
 export class PlayerService {
-  private playerRef: AngularFireObject<Company>;
-  private playerGroupRef: AngularFireList<Company>;
+  // private playerRef: AngularFireObject<Player>;
+  // private playerGroupRef: AngularFireList<Player>;
 
 
-  constructor(private db: AngularFireDatabase) {
-  this.playerRef = this.db.object<Player>(`player`);
-  this.playerGroupRef = this.db.list<Player>(`playerGroup`);
-  }
+  // constructor(private db: AngularFireDatabase) {
+  // this.playerRef = this.db.object<Player>(`player`);
+  // this.playerGroupRef = this.db.list<Player>(`playerGroup`);
+  // }
 
-  getPlayerGroupObservable(): Observable<Player[]>{
-    return this.playerGroupRef.snapshotChanges()
-      .pipe(
-        map((items: SnapshotAction<Player>[]): Player[] => {
-          return items.map((item: SnapshotAction<Player>): Player => {
-            return {
-              name: item.payload.val().name,
-              id: item.payload.val().id,
-            } as Player;
-          });
-        })
-      );
+  // getPlayerGroupObservable(): Observable<Player[]>{
+  //   return this.playerGroupRef.snapshotChanges()
+  //     .pipe(
+  //       map((items: SnapshotAction<Player>[]): Player[] => {
+  //         return items.map((item: SnapshotAction<Player>): Player => {
+  //           return {
+  //             name: item.payload.val().name,
+  //             id: item.payload.val().id,
+  //           } as Player;
+  //         });
+  //       })
+  //     );
+  //
+  // }
 
-  }
-
-  savePlayer(player: Player) {
-    return this.playerGroupRef.push(player)
-      .then(_ => console.log('Success on set'));
-  }
-
-  removePlayer(name: string) {
-    this.playerGroupRef.remove()
-      .then(_ => console.log('Success on remove'))
-      .catch(error => console.log('remove', error));
-    return this.playerGroupRef.remove(name)
-  }
+  // savePlayer(player: Player) {
+  //   return this.playerGroupRef.push(player)
+  //     .then(_ => console.log('Success on set'));
+  // }
+  //
+  // removePlayer(name: string) {
+  //   this.playerGroupRef.remove()
+  //     .then(_ => console.log('Success on remove'))
+  //     .catch(error => console.log('remove', error));
+  //   return this.playerGroupRef.remove(name)
+  // }
 
 }

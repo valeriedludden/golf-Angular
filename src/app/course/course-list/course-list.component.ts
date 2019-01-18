@@ -4,6 +4,7 @@ import {Course} from "../course";
 import {CourseService} from "../../service/course.service";
 import {Player} from "../../models/player-interface";
 import {async} from "rxjs/internal/scheduler/async";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-course-list',
@@ -23,7 +24,7 @@ export class CourseListComponent implements OnInit {
   numPlayer: number;
   playerArray: Array<Player> = [];
 
-  constructor(private courseService: CourseService) {
+  constructor(private courseService: CourseService, private router: Router) {
   }
 
   ngOnInit() {
@@ -56,6 +57,18 @@ export class CourseListComponent implements OnInit {
       console.log(this.playerArray);
     }
   }
-}
 
+  buildGame() {
+    this.courseService.game = {
+      courseId: this.courseId,
+      playerArray: this.playerArray,
+      teeType: this.selectedTeeBox
+    };
+    this.courseService.saveGame(this.courseService.game);
+    this.redirectToScoreCard();
+  }
+  redirectToScoreCard(){
+
+  }
+}
 

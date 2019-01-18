@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import {Observable} from "rxjs";
 import {Course} from "../course";
 import {CourseService} from "../../service/course.service";
-import {Player} from "../../models/player-interface";
 import {async} from "rxjs/internal/scheduler/async";
 import {Router} from "@angular/router";
+import {Player} from "../../model/player";
 
 @Component({
   selector: 'app-course-list',
@@ -68,7 +68,7 @@ export class CourseListComponent implements OnInit {
     this.redirectToScoreCard();
   }
   redirectToScoreCard(){
-
+// this.router.navigate(['score']);
   }
 }
 

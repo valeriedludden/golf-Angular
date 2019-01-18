@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CourseService} from "../service/course.service";
 import {Course} from "../course/course";
 import {Observable} from "rxjs";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-scorecard',
@@ -10,17 +11,20 @@ import {Observable} from "rxjs";
 })
 export class ScorecardComponent implements OnInit {
 
-  courses$: Observable<Course[]>;
-  courseObject: object;
-  numPlayers: number;
-  course: object;
-  id: number;
-  selectedTeeBox: any;
-  hole: any;
+  get game(): Course{
+    return this.courseService.game;
+  }
 
-  constructor(private courseService: CourseService) { }
+  courseInfo: object;
+  parTotal: number;
+  yardTotal: number;
+
+
+  constructor(private courseService: CourseService, private router: Router) { }
 
   ngOnInit() {
+    this.courseService.getCourse(this.game.courseId)
+      .subscribe(response => this.courseInfo = response['data']);
   }
 
 }

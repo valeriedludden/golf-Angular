@@ -17,20 +17,16 @@ import {
 } from "@angular/material";
 import {FormsModule} from "@angular/forms";
 import { WelcomeComponent } from './welcome/welcome.component';
-import { GameSetUpComponent } from './game-set-up/game-set-up.component';
 import { ScorecardComponent } from './scorecard/scorecard.component';
 import { CourseListComponent } from './course/course-list/course-list.component';
 import {HttpClientModule} from "@angular/common/http";
-import { PlayerComponent } from './player/player.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     WelcomeComponent,
-    GameSetUpComponent,
     ScorecardComponent,
-    CourseListComponent,
-    PlayerComponent
+    CourseListComponent
   ],
   imports: [
     BrowserModule,

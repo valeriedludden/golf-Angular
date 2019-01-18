@@ -30,7 +30,8 @@
 </mat-card>
 
 <mat-card>
-  <button (click)="buildGame()">Start Game</button>
+  <!--<button (click)="buildGame()">Start Game</button>-->
+  <button (click)="buildGame()" [routerLink]="['/score']">Start Game</button>
 </mat-card>
 
 

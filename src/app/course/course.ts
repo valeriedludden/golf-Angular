@@ -1,4 +1,5 @@
-import {Player} from "../models/player-interface";
+import {Player} from "../model/player";
+
 
 export interface Course {
   courseId: number;

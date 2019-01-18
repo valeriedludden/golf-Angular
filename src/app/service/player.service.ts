@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import {Company} from "../../../../angularfire-example/src/app/models/company";
 import {AngularFireDatabase, AngularFireList, AngularFireObject, SnapshotAction} from "@angular/fire/database";
 import {Player} from "../models/player-interface";
 import {Observable} from "rxjs";

@@ -23,11 +23,15 @@
   </mat-select>
 </mat-form-field>
 </mat-card>
-<!--<mat-card>-->
-  <!--<mat-form-field>-->
-    <!--<input *ngFor='let player of players?' type="text" matInput [(ngModel)]="player.name" placeholder="Player Name" required>-->
-  <!--</mat-form-field>-->
-<!--</mat-card>-->
+<mat-card>
+    <mat-form-field *ngFor='let players of playerArray; let i = index'>
+      <input  type="text" matInput [(ngModel)]="players.name" placeholder="Player Name" required>
+    </mat-form-field>
+</mat-card>
+
+<mat-card>
+  <button></button>
+</mat-card>
 
 
 

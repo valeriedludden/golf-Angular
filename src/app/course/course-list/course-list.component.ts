@@ -22,17 +22,6 @@ export class CourseListComponent implements OnInit {
   hole: any;
   numPlayer: number;
   playerArray: Array<Player> = [];
-  //player: Player;
-
-player: Player = {
-  name: 'Player name here',
-  hole: [0],
-  inScore: 0,
-  outScore: 0,
-  totalScore: 0,
-  parComparison: 0,
-  id: 0
-};
 
   constructor(private courseService: CourseService) {
   }
@@ -54,7 +43,16 @@ player: Player = {
 
   getPlayerArray() {
     for (let i = 0; i < this.numPlayer; i++) {
-      this.playerArray[i] = this.player;
+
+      this.playerArray[i] = {
+        name: '',
+        hole: [0],
+        inScore: 0,
+        outScore: 0,
+        totalScore: 0,
+        parComparison: 0,
+        id: i
+      };
       console.log(this.playerArray);
     }
   }

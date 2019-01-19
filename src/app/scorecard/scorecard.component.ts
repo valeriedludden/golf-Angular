@@ -16,15 +16,15 @@ export class ScorecardComponent implements OnInit {
     return this.courseService.game;
   }
 
-  //game: Course;
   courseInfo: object;
   parTotal: number = 0;
   parInTotal: number = 0;
   parOutTotal: number = 0;
   yardTotal: number = 0;
+  hcpTotal: number = 0;
   inScoreTotal: number;
   outScoreTotal: number;
-  palyerTotalScore: number;
+  playerTotalScore: number;
 
 
   constructor(private courseService: CourseService,
@@ -38,10 +38,13 @@ export class ScorecardComponent implements OnInit {
   }
 
   setHoleValues(){
-    this.parTotal = this.getParTotal();
-    this.parInTotal = this.getParInTotal();
-    this.parOutTotal = this.getParOutTotal();
-    this.yardTotal = this.getYardTotal();
+
+    this.game.parTotal = this.getParTotal();
+    this.game.parInTotal = this.getParInTotal();
+    this.game.parOutTotal = this.getParOutTotal();
+    this.game.yardTotal = this.getYardTotal();
+    this.game.hcpTotal = this.getHcpTotal();
+    this.getInScore();
  }
 
   getParTotal() {
@@ -73,4 +76,21 @@ export class ScorecardComponent implements OnInit {
     }
     return total;
   }
+  getHcpTotal(){
+    let total = 0;
+    for(let i = 0; i < 18; i++){
+      total += this.game.holeArray[i].hcp;
+    }
+    return total;
+  }
+  getInScore(){
+    let total = 0;
+    for(let i = 0; i < this.game.playerArray.length; i++){
+      for(let h = 0; h < 9; h++){
+       total += this.game.playerArray[i].scoreArray[h];
+      }
+      this.game.playerArray[i].inScore =  total;
+    }
+  }
+
 }

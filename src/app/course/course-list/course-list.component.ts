@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import {Observable} from "rxjs";
 import {Course} from "../course";
 import {CourseService} from "../../service/course.service";
-import {async} from "rxjs/internal/scheduler/async";
 import {Router} from "@angular/router";
 import {Player} from "../../model/player";
 import {Hole} from "../../model/hole";
@@ -25,9 +24,12 @@ export class CourseListComponent implements OnInit {
   numPlayer: number;
   playerArray: Array<Player> = [];
   holeArray: Array<Hole> = [];
+  scoreArray: Array<number> = [];
 
-  constructor(private courseService: CourseService, private router: Router) {
+
+  constructor(private courseService: CourseService) {
   }
+
 
   ngOnInit() {
     this.getApi();
@@ -45,19 +47,26 @@ export class CourseListComponent implements OnInit {
   }
 
   getPlayerArray() {
+    this.setScoreArray();
     for (let i = 0; i < this.numPlayer; i++) {
 
       this.playerArray[i] = {
         name: '',
-        // hole: [0],
         inScore: 0,
         outScore: 0,
         totalScore: 0,
         parComparison: 0,
-        id: i
+        id: i,
+        scoreArray: this.scoreArray
       };
-      console.log(this.playerArray);
     }
+  }
+  setScoreArray(){
+    for(let i = 0; i < 18; i++)
+    {
+      this.scoreArray.push(3);
+    }
+    return this.scoreArray;
   }
 
   getHoleArray(){
@@ -77,7 +86,12 @@ export class CourseListComponent implements OnInit {
       courseId: this.courseId,
       playerArray: this.playerArray,
       teeType: this.selectedTeeBox,
-      holeArray: this.holeArray
+      holeArray: this.holeArray,
+      parTotal: 0,
+      parInTotal: 0,
+      parOutTotal: 0,
+      yardTotal: 0,
+      hcpTotal: 0
     };
     this.courseService.saveGame(this.courseService.game);
     this.redirectToScoreCard();

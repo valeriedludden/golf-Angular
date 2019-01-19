@@ -20,13 +20,17 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { ScorecardComponent } from './scorecard/scorecard.component';
 import { CourseListComponent } from './course/course-list/course-list.component';
 import {HttpClientModule} from "@angular/common/http";
+import { EndGameComponent } from './end-game/end-game.component';
+import { CourseInfoComponent } from './course-info/course-info.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     WelcomeComponent,
     ScorecardComponent,
-    CourseListComponent
+    CourseListComponent,
+    EndGameComponent,
+    CourseInfoComponent
   ],
   imports: [
     BrowserModule,

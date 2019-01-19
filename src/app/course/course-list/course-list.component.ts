@@ -61,14 +61,13 @@ export class CourseListComponent implements OnInit {
   }
 
   getHoleArray(){
-    for (let i = 0; i < this.numPlayer; i++){
+    for (let i = 0; i < 18; i++){
       this.holeArray[i] = {
         par: this.course['holes'][i]['teeBoxes'][this.selectedTeeBox].par,
-      yards: this.course['holes'][i]['teeBoxes'][this.selectedTeeBox].yards,
-      hcp: this.course['holes'][i]['teeBoxes'][this.selectedTeeBox].hcp,
-      teeBox: this.selectedTeeBox
+        yards: this.course['holes'][i]['teeBoxes'][this.selectedTeeBox].yards,
+        hcp: this.course['holes'][i]['teeBoxes'][this.selectedTeeBox].hcp,
+        teeBox: this.selectedTeeBox
       };
-      console.log("hole array" + this.holeArray);
     }
   }
 

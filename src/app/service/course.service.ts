@@ -2,10 +2,8 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable, of} from "rxjs";
-import {switchMap} from "rxjs/operators";
 import {Course} from "../course/course";
 import {AngularFireDatabase, AngularFireObject} from "@angular/fire/database";
-import {Contact} from "../../../../angularfire-example/src/app/models/contact";
 
 
 

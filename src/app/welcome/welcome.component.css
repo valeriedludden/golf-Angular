@@ -1,0 +1,32 @@
+/*.image {*/
+  /*background-image: url("../../assets/golf.jpeg");*/
+  /*background-size: cover;*/
+  /*background-repeat: no-repeat;*/
+  /*background-position: center;*/
+/*}*/
+mat-card{
+  alignment: center;
+  width: 70%;
+  margin: auto;
+}
+img{
+  width: 100%;
+}
+h1 {
+  alignment: center;
+  width: 70%;
+  margin: auto;
+
+}
+.mat-button{
+  background-color: #5ad5a6;
+  margin: 10px;
+}
+mat-card{
+  margin-bottom: 10px;
+}
+div{
+  alignment: center;
+  margins: autp;
+  /*width: 60%;*/
+}

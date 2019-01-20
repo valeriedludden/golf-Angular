@@ -39,9 +39,6 @@ export class ScorecardComponent implements OnInit {
       .subscribe(response => this.courseInfo = response['data']['holes']);
     this.setHoleValues();
   }
-  ngOnChanges(){
-    this.courseService.saveGame(this.courseService.game);
-  }
 
   setHoleValues() {
 
@@ -104,8 +101,8 @@ export class ScorecardComponent implements OnInit {
     return total;
   }
 
-    getInScore(scoreArray) {
-
+    getInScore(scoreArray: Array<number>) {
+console.log("begin array " + scoreArray);
       let total = 0;
       let sum = 0;
       for(let h = 0; h < 9; h++){
@@ -117,6 +114,7 @@ export class ScorecardComponent implements OnInit {
       return total;
     }
     updateGame(){
+    //this.getInScore()
       this.courseService.saveGame(this.courseService.game);
     }
 

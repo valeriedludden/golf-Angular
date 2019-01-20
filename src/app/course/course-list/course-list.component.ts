@@ -27,6 +27,7 @@ export class CourseListComponent implements OnInit {
   scoreArray: Array<number> = [];
 
 
+
   constructor(private courseService: CourseService) {
   }
 
@@ -47,7 +48,7 @@ export class CourseListComponent implements OnInit {
   }
 
   getPlayerArray() {
-    this.setScoreArray();
+     this.setScoreArray();
     for (let i = 0; i < this.numPlayer; i++) {
 
       this.playerArray[i] = {

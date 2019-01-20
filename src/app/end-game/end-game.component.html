@@ -17,3 +17,4 @@
   <div>{{ game.playerArray[2].inScore}}</div>
 
 </mat-card>
+<mat-card *ngFor="let player of players"> {{ getInScore(player.scoreArray) }} </mat-card>

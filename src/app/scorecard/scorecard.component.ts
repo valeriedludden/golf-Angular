@@ -1,9 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges } from '@angular/core';
 import { CourseService} from "../service/course.service";
 import {Course} from "../course/course";
-import {Observable} from "rxjs";
 import {Router} from "@angular/router";
-import {CourseListComponent} from "../course/course-list/course-list.component";
+import {Player} from "../model/player";
 
 @Component({
   selector: 'app-scorecard',
@@ -12,7 +11,7 @@ import {CourseListComponent} from "../course/course-list/course-list.component";
 })
 export class ScorecardComponent implements OnInit {
 
-  get game(): Course{
+  get game(): Course {
     return this.courseService.game;
   }
 
@@ -22,75 +21,101 @@ export class ScorecardComponent implements OnInit {
   parOutTotal: number = 0;
   yardTotal: number = 0;
   hcpTotal: number = 0;
-  inScoreTotal: number;
-  outScoreTotal: number;
-  playerTotalScore: number;
+  player: object;
+  players: Array<Player>;
+  id: number;
+  holes: Array<object>;
+  hole: any;
+
 
 
   constructor(private courseService: CourseService,
               private router: Router
-  ) { }
+  ) {
+  }
 
   ngOnInit() {
     this.courseInfo = this.courseService.getCourse(this.game.courseId)
       .subscribe(response => this.courseInfo = response['data']['holes']);
-     this.setHoleValues();
+    this.setHoleValues();
+  }
+  ngOnChanges(){
+    this.courseService.saveGame(this.courseService.game);
   }
 
-  setHoleValues(){
+  setHoleValues() {
 
     this.game.parTotal = this.getParTotal();
     this.game.parInTotal = this.getParInTotal();
     this.game.parOutTotal = this.getParOutTotal();
     this.game.yardTotal = this.getYardTotal();
     this.game.hcpTotal = this.getHcpTotal();
-    this.getInScore();
- }
+    this.players = this.game.playerArray;
+    this.holes = this.game.holeArray;
+  }
 
   getParTotal() {
     let total = 0;
-    for(let i = 0; i < 18; i++){
-      total += this.game.holeArray[i].par;
-    }
-    return total;
-  }
-  getParInTotal(){
-    let total = 0;
-    for(let i = 9; i < 18; i++){
-      total += this.game.holeArray[i].par;
+    let sum = 0;
+    for (let i = 0; i < 18; i++) {
+       sum = this.game.holeArray[i].par;
+       total += sum;
     }
     return total;
   }
 
-  getParOutTotal(){
+  getParInTotal() {
     let total = 0;
-    for(let i = 0; i < 9; i++){
-      total += this.game.holeArray[i].par;
+    let sum = 0;
+    for (let i = 9; i < 18; i++) {
+      sum = this.game.holeArray[i].par;
+      total += sum;
     }
     return total;
   }
-  getYardTotal(){
+
+  getParOutTotal() {
     let total = 0;
-    for(let i = 0; i < 18; i++){
-      total += this.game.holeArray[i].yards;
+    let sum = 0;
+    for (let i = 0; i < 9; i++) {
+      sum = this.game.holeArray[i].par;
+      total += sum;
     }
     return total;
   }
-  getHcpTotal(){
+
+  getYardTotal() {
     let total = 0;
-    for(let i = 0; i < 18; i++){
-      total += this.game.holeArray[i].hcp;
+    let sum = 0;
+    for (let i = 0; i < 18; i++) {
+      sum = this.game.holeArray[i].yards;
+      total += sum;
     }
     return total;
   }
-  getInScore(){
+
+  getHcpTotal() {
     let total = 0;
-    for(let i = 0; i < this.game.playerArray.length; i++){
+    let sum = 0;
+    for (let i = 0; i < 18; i++) {
+      sum = this.game.holeArray[i].hcp;
+      total += sum;
+    }
+    return total;
+  }
+
+    getInScore(scoreArray) {
+
+      let total = 0;
+      let sum = 0;
       for(let h = 0; h < 9; h++){
-       total += this.game.playerArray[i].scoreArray[h];
+        sum = scoreArray[h];
+        total += sum;
       }
-      this.game.playerArray[i].inScore =  total;
+      return total;
     }
-  }
+    updateGame(){
+      this.courseService.saveGame(this.courseService.game);
+    }
 
 }

@@ -50,7 +50,8 @@ import { CourseInfoComponent } from './course-info/course-info.component';
     HttpClientModule,
     MatOptionModule,
     MatSelectModule,
-    MatTableModule
+    MatTableModule,
+    MatInputModule
 
   ],
   providers: [],

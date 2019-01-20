@@ -48,7 +48,7 @@ export class CourseListComponent implements OnInit {
   }
 
   getPlayerArray() {
-     this.setScoreArray();
+     //this.setScoreArray();
     for (let i = 0; i < this.numPlayer; i++) {
 
       this.playerArray[i] = {
@@ -58,7 +58,8 @@ export class CourseListComponent implements OnInit {
         totalScore: 0,
         parComparison: 0,
         id: i,
-        scoreArray: this.scoreArray
+        // scoreArray: this.scoreArray
+        scoreArray: [2,4,6,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
       };
     }
   }

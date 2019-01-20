@@ -111,7 +111,9 @@ export class ScorecardComponent implements OnInit {
       for(let h = 0; h < 9; h++){
         sum = scoreArray[h];
         total += sum;
+        console.log("in total " + total);
       }
+      console.log("return total in " + total);
       return total;
     }
     updateGame(){

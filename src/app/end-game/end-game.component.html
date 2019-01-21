@@ -16,23 +16,24 @@
 
 <!--</mat-card>-->
 <!--<mat-card *ngFor="let player of players"> {{ getInScore(player.scoreArray) }} </mat-card>-->
-
+<mat-card>
+</mat-card>
 <mat-card *ngFor="let player of players; index as index">
-  <mat-card-title>Player {{index + 1}} {{player.name}}</mat-card-title>
+  <mat-card-title>Player {{ index + 1 }} {{ player.name }}</mat-card-title>
 
   <mat-card-content>
-    <div>Out Score: </div><div>{{ getOutScore(player.scoreArray )}}</div>
+    <div>Out Score: </div><div>{{ getOutScore(player.scoreArray) }}</div>
   </mat-card-content>
   <mat-card-content>
-    <div>In Score: </div><div>{{getInScore(player.scoreArray )}}</div>
+    <div>In Score: </div><div>{{ getInScore(player.scoreArray) }}</div>
   </mat-card-content>
   <mat-card-content>
-    <div>Total Par: </div><div>{{getTotalScore(player.scoreArray )}}</div>
+    <div> Course Par:</div><div>{{ game.parTotal}}</div><div> Player Score: </div><div>{{ getTotalScore(player.scoreArray) }}</div>
   </mat-card-content>
   <mat-card-content>
-    <div>Par Comparison: </div><div>{{getParComparison(player.scoreArray )}}</div>
+    <div>Par Comparison: </div><div>{{ getParComparison(player.scoreArray) }}</div>
   </mat-card-content>
-  <mat-card-header>{{getMessage(player.scoreArray )}}</mat-card-header>
+  <mat-card-header>{{ getMessage(player.scoreArray) }}</mat-card-header>
 
 
 </mat-card>

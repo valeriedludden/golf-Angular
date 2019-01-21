@@ -102,15 +102,12 @@ export class ScorecardComponent implements OnInit {
   }
 
     getInScore(scoreArray: Array<number>) {
-console.log("begin array " + scoreArray);
       let total = 0;
       let sum = 0;
       for(let h = 9; h < 18; h++){
         sum = scoreArray[h];
         total += sum;
-        console.log("in total " + total);
       }
-      console.log("return total in " + total);
       return total;
     }
     updateGame(){
@@ -119,3 +116,71 @@ console.log("begin array " + scoreArray);
     }
 
 }
+
+
+
+//
+//
+//
+// get game(): Course {
+//   return this.courseService.game;
+//   //return this.game$;
+//   // return this.courseService.getGameObservable()
+//   //   .subscribe(response => this.courseInfo = response);
+//   // return this.game;
+// }
+// game$: Observable<Course>;
+// courseInfo: object;
+// parTotal: number = 0;
+// parInTotal: number = 0;
+// parOutTotal: number = 0;
+// yardTotal: number = 0;
+// hcpTotal: number = 0;
+// player: object;
+// players: Array<Player>;
+// id: number;
+// holes: Array<object>;
+// hole: any;
+// // game: Course;
+//
+//
+// constructor(private courseService: CourseService,
+//   private router: Router
+// ) {
+// }
+//
+// ngOnInit() {
+//   // this.courseInfo = this.courseService.getCourse(this.game.courseId)
+//   //   .subscribe(response => this.courseInfo = response['data']['holes']);
+//   this.game$ = this.courseService.getGameObservable(this.game.courseId);
+//   this.setCourseInfo();
+//   // this.setHoleValues();
+//
+// }
+//
+// setHoleValues() {
+//
+//   this.game.parTotal = this.getParTotal();
+//   this.game.parInTotal = this.getParInTotal();
+//   this.game.parOutTotal = this.getParOutTotal();
+//   this.game.yardTotal = this.getYardTotal();
+//   this.game.hcpTotal = this.getHcpTotal();
+//   this.players = this.game.playerArray;
+//   this.holes = this.game.holeArray;
+// }
+// setCourseInfo() {
+//   return this.courseRef.snapshotChanges()
+//     .pipe(
+//       map((item: SnapshotAction<Course>): Course => {
+//         return {
+//           name: item.payload.val().name,
+//           id: item.payload.val().id,
+//           teeChoice: item.payload.val().teeChoice,
+//           holeArray: item.payload.val().holeArray,
+//           holeIndex: item.payload.val().holeIndex,
+//           playerArray: item.payload.val().playerArray
+//         } as Course;
+//       })
+//     );
+// }
+//

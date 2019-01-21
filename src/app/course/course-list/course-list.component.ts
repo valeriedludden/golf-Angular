@@ -53,23 +53,17 @@ export class CourseListComponent implements OnInit {
 
       this.playerArray[i] = {
         name: '',
-        inScore: 0,
-        outScore: 0,
-        totalScore: 0,
-        parComparison: 0,
+        // inScore: 0,
+        // outScore: 0,
+        // totalScore: 0,
+        // parComparison: 0,
         id: i,
         // scoreArray: this.scoreArray
         scoreArray: [2,4,6,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
       };
     }
   }
-  setScoreArray(){
-    for(let i = 0; i < 18; i++)
-    {
-      this.scoreArray.push(3);
-    }
-    return this.scoreArray;
-  }
+
 
   getHoleArray(){
     for (let i = 0; i < 18; i++){
@@ -85,6 +79,7 @@ export class CourseListComponent implements OnInit {
   buildGame() {
     this.getHoleArray();
     this.courseService.game = {
+      //courseName: this.courseName,
       courseId: this.courseId,
       playerArray: this.playerArray,
       teeType: this.selectedTeeBox,

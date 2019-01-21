@@ -105,7 +105,7 @@ export class ScorecardComponent implements OnInit {
 console.log("begin array " + scoreArray);
       let total = 0;
       let sum = 0;
-      for(let h = 0; h < 9; h++){
+      for(let h = 9; h < 18; h++){
         sum = scoreArray[h];
         total += sum;
         console.log("in total " + total);

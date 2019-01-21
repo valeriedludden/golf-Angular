@@ -1,20 +1,38 @@
-<p>
-  end-game works!
-</p>
-<mat-card>
-  <div>Hole 1 Par</div>
-  <div>{{ game.holeArray[1].par}}</div>
-  <div>Par total</div>
-  <div>{{ game.parTotal}}</div>
-  <div>Yard Total</div>
-  <div>{{ game.yardTotal}}</div>
-  <div>Player 1</div>
-  <div>{{ game.playerArray[0].name}}</div>
-  <div>Player Score</div>
-  <div>{{ game.playerArray[0].scoreArray[1]}}</div>
 
-  <div>Player In</div>
-  <div>{{ game.playerArray[2].inScore}}</div>
+<!--<mat-card>-->
+  <!--<div>Hole 1 Par</div>-->
+  <!--<div>{{ game.holeArray[1].par}}</div>-->
+  <!--<div>Par total</div>-->
+  <!--<div>{{ game.parTotal}}</div>-->
+  <!--<div>Yard Total</div>-->
+  <!--<div>{{ game.yardTotal}}</div>-->
+  <!--<div>Player 1</div>-->
+  <!--<div>{{ game.playerArray[0].name}}</div>-->
+  <!--<div>Player Score</div>-->
+  <!--<div>{{ game.playerArray[0].scoreArray[1]}}</div>-->
+
+  <!--<div>Player In</div>-->
+  <!--<mat-card *ngFor="let player of players">{{ playerArray.inScore}}</mat-card>-->
+
+<!--</mat-card>-->
+<!--<mat-card *ngFor="let player of players"> {{ getInScore(player.scoreArray) }} </mat-card>-->
+
+<mat-card *ngFor="let player of players; index as index">
+  <mat-card-title>Player {{index + 1}} {{player.name}}</mat-card-title>
+
+  <mat-card-content>
+    <div>Out Score: </div><div>{{ getOutScore(player.scoreArray )}}</div>
+  </mat-card-content>
+  <mat-card-content>
+    <div>In Score: </div><div>{{getInScore(player.scoreArray )}}</div>
+  </mat-card-content>
+  <mat-card-content>
+    <div>Total Par: </div><div>{{getTotalScore(player.scoreArray )}}</div>
+  </mat-card-content>
+  <mat-card-content>
+    <div>Par Comparison: </div><div>{{getParComparison(player.scoreArray )}}</div>
+  </mat-card-content>
+  <mat-card-header>{{getMessage(player.scoreArray )}}</mat-card-header>
+
 
 </mat-card>
-<mat-card *ngFor="let player of players"> {{ getInScore(player.scoreArray) }} </mat-card>

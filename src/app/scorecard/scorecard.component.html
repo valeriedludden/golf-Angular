@@ -1,7 +1,3 @@
-<p>
-  scorecard works!
-</p>
-<button [routerLink]="['/end-game']">End Game</button>
 
 <mat-card *ngFor="let player of players"> {{ getInScore(player.scoreArray) }} </mat-card>
   <mat-card *ngFor="let hole of holes; index as index">

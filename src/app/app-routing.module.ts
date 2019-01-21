@@ -10,9 +10,8 @@ const routes: Routes = [
   { path: 'welcome', component: WelcomeComponent},
   { path: 'course', component: CourseListComponent},
   { path: 'score', component: ScorecardComponent},
-  { path: 'end-game', component: EndGameComponent}
-
-
+  { path: 'end-game', component: EndGameComponent},
+  { path: '**', redirectTo: 'welcome' }
   // { path: 'contact/:id', component: ContactEditComponent },
   // { path: '**', redirectTo: '' }                  // <-- redirect to the list now
 ];

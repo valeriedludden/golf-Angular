@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {CourseService} from "../service/course.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-welcome',
@@ -8,7 +9,7 @@ import {CourseService} from "../service/course.service";
 })
 export class WelcomeComponent implements OnInit {
 
-  constructor(private courseService: CourseService) { }
+  constructor(private courseService: CourseService, private router: Router) { }
 
   ngOnInit() {
   }

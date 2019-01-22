@@ -1,16 +1,24 @@
-mat-card{
+.hole{
+  background-color: #0ec254;
+  margin: 15px;
 }
-table{
-  width: 100%;
+.title{
+  background-color: #b2f3cb;
 }
 span{
-  display: flex;
   width: 25%;
   margin: auto;
 }
-div{
-  display: flex;
-}
+
 .holeInfoHeader{
   font-weight: bold;
+}
+h1{
+  margin: 15px auto;
+ text-align: center;
+}
+input{
+  /*text-decoration: none;*/
+  border: none;
+  width: 50%;
 }

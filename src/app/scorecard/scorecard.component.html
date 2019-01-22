@@ -1,13 +1,13 @@
 <h1>Player Score Card</h1>
-  <mat-card *ngFor="let hole of holes; index as index">
-   <mat-card>
-     <mat-card-title fxLayoutAlign="center center"> Hole {{index}}</mat-card-title>
+  <mat-card class="hole" *ngFor="let hole of holes; index as index">
+   <mat-card class="title">
+     <mat-card-title fxLayoutAlign="center center"> Hole {{index + 1 }}</mat-card-title>
    </mat-card>
     <mat-card>
 
 
     <mat-card-content>
-      <mat-card-header fxLayoutAlign="center center">Hole Information</mat-card-header>
+      <!--<mat-card-header fxLayoutAlign="center center">Hole Information</mat-card-header>-->
 
       <div class="holeInfoHeader" fxLayout="row" fxLayoutAlign="start start">
         <span >Hole Par</span><span>Yards</span><span>hcp</span>

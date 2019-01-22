@@ -3,3 +3,14 @@ mat-card{
 table{
   width: 100%;
 }
+span{
+  display: flex;
+  width: 25%;
+  margin: auto;
+}
+div{
+  display: flex;
+}
+.holeInfoHeader{
+  font-weight: bold;
+}

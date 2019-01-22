@@ -21,7 +21,6 @@ import { ScorecardComponent } from './scorecard/scorecard.component';
 import { CourseListComponent } from './course/course-list/course-list.component';
 import {HttpClientModule} from "@angular/common/http";
 import { EndGameComponent } from './end-game/end-game.component';
-import { CourseInfoComponent } from './course-info/course-info.component';
 import {FlexLayoutModule} from "@angular/flex-layout";
 
 @NgModule({
@@ -31,7 +30,6 @@ import {FlexLayoutModule} from "@angular/flex-layout";
     ScorecardComponent,
     CourseListComponent,
     EndGameComponent,
-    CourseInfoComponent
   ],
   imports: [
     BrowserModule,

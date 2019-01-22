@@ -1,9 +1,9 @@
 .hole{
-  background-color: #0ec254;
+  background-color: #27966f;
   margin: 15px;
 }
 .title{
-  background-color: #b2f3cb;
+  background-color: #b9e4c9;
 }
 span{
   width: 25%;
@@ -21,4 +21,7 @@ input{
   /*text-decoration: none;*/
   border: none;
   width: 50%;
+}
+.final{
+  background-color: #fd5523;
 }

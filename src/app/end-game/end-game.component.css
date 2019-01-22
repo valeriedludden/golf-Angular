@@ -1,5 +1,6 @@
 mat-card-title{
-  background-color: lightgreen;
+  /*background-color: lightgreen;*/
+  background-color: #fd5523;
 }
 mat-card-header{
   /*font-weight: bold;*/

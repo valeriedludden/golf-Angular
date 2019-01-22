@@ -13,17 +13,17 @@ img{
   width: 100%;
 }
 h1 {
-  alignment: center;
-  width: 70%;
-  margin: auto;
+  text-align: center;
 
 }
 .mat-button{
-  background-color: #5ad5a6;
-  margin: 10px;
+  background-color: #37966f;
+  /*background-color: #5ad5a6;*/
+  margin: 10px auto;
+  position: center;
 }
 mat-card{
-  margin-bottom: 10px;
+  align-items: center;
 }
 div{
   alignment: center;

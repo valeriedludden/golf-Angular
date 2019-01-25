@@ -22,6 +22,7 @@ import { CourseListComponent } from './course/course-list/course-list.component'
 import {HttpClientModule} from "@angular/common/http";
 import { EndGameComponent } from './end-game/end-game.component';
 import {FlexLayoutModule} from "@angular/flex-layout";
+import { NameCheckPipe } from './name-check.pipe';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import {FlexLayoutModule} from "@angular/flex-layout";
     WelcomeComponent,
     ScorecardComponent,
     CourseListComponent,
-    EndGameComponent
+    EndGameComponent,
+    NameCheckPipe
   ],
   imports: [
     BrowserModule,

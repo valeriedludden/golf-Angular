@@ -16,7 +16,7 @@ export class ScorecardComponent implements OnInit, OnChanges {
   yardTotal: number = 0;
   hcpTotal: number = 0;
   player: object;
-  players: Player [];
+  players: Player [] = [];
   id: number;
   holes: Object[];
   hole: any;
@@ -44,6 +44,7 @@ export class ScorecardComponent implements OnInit, OnChanges {
     this.game.parOutTotal = this.getParOutTotal();
     this.game.yardTotal = this.getYardTotal();
     this.game.hcpTotal = this.getHcpTotal();
+    console.log(this.game.playerArray[0]);
     this.players = this.game.playerArray;
     this.holes = this.game.holeArray;
   }

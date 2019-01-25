@@ -28,7 +28,7 @@
           <span class="holeInfoHeader">Player</span>
           <span class="holeInfoHeader">Score</span>
         </div>
-        <div  *ngFor="let player of game?.playerArray; index as p" fxLayout="row" fxLayoutAlign="center center">
+        <div  *ngFor=" let player of (game?.playerArray | nameCheck); index as p;" fxLayout="row" fxLayoutAlign="center center">
           <span>{{player.name}}</span>
            <span fxLayout="row" fxLayoutAlign="center center"> <mat-form-field>
 

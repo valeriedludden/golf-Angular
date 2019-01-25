@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {Observable} from "rxjs";
+// import {Observable} from "rxjs";
 import {Course} from "../course";
 import {CourseService} from "../../service/course.service";
-import {Router} from "@angular/router";
+// import {Router} from "@angular/router";
 import {Player} from "../../model/player";
 import {Hole} from "../../model/hole";
 
@@ -13,7 +13,7 @@ import {Hole} from "../../model/hole";
 })
 export class CourseListComponent implements OnInit {
 
-  courses$: Observable<Course[]>;
+  // courses$: Observable<Course[]>;
   courseObject: object;
   course: object;
   apiResult: any;
@@ -24,7 +24,7 @@ export class CourseListComponent implements OnInit {
   numPlayer: number;
   playerArray: Array<Player> = [];
   holeArray: Array<Hole> = [];
-  scoreArray: Array<number> = [];
+  // scoreArray: Array<number> = [];
 
 
 
@@ -48,22 +48,15 @@ export class CourseListComponent implements OnInit {
   }
 
   getPlayerArray() {
-     //this.setScoreArray();
     for (let i = 0; i < this.numPlayer; i++) {
 
       this.playerArray[i] = {
         name: '',
-        // inScore: 0,
-        // outScore: 0,
-        // totalScore: 0,
-        // parComparison: 0,
         id: i,
-        // scoreArray: this.scoreArray
         scoreArray: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
       };
     }
   }
-
 
   getHoleArray(){
     for (let i = 0; i < 18; i++){
@@ -79,7 +72,6 @@ export class CourseListComponent implements OnInit {
   buildGame() {
     this.getHoleArray();
     this.courseService.game = {
-      //courseName: this.courseName,
       courseId: this.courseId,
       playerArray: this.playerArray,
       teeType: this.selectedTeeBox,
@@ -91,10 +83,10 @@ export class CourseListComponent implements OnInit {
       hcpTotal: 0
     };
     this.courseService.saveGame(this.courseService.game);
-    this.redirectToScoreCard();
+    // this.redirectToScoreCard();
   }
-  redirectToScoreCard(){
-// this.router.navigate(['score']);
-  }
+//   redirectToScoreCard(){
+// // this.router.navigate(['score']);
+//   }
 }
 

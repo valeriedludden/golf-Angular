@@ -1,6 +1,5 @@
 <mat-card>
   <div class="selection">
-  <!--<mat-card class="selection" fxLayout="row" fxLayoutAlign="center center">-->
     <mat-card>
       <mat-form-field>
         <mat-select [(ngModel)]="courseId" (selectionChange)="getCourseInfo()" placeholder="Choose Course" >
@@ -30,20 +29,14 @@
   </div>
 
   <div class="name">
-  <!--<div class="name" fxLayout="row" fxLayoutAlign="center center">-->
       <mat-form-field *ngFor='let players of playerArray; let i = index'>
         <input  type="text" matInput [(ngModel)]="players.name" placeholder="Player Name" required>
       </mat-form-field>
   </div>
 
   <div fxLayout="row" fxLayoutAlign="center center">
-    <!--<button (click)="buildGame()">Start Game</button>-->
       <button mat-button (click)="buildGame()" [routerLink]="['/score']">Start Game</button>
   </div>
 </mat-card>
 
-
-
-
-<!--<div *ngFor='let hole of course?.holes'> {{ hole.teeBoxes[selectedTeeBox]?.yards }}</div>-->
 

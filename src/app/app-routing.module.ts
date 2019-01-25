@@ -7,14 +7,12 @@ import {WelcomeComponent} from "./welcome/welcome.component";
 
 const routes: Routes = [
 
-  //{ path: '', redirectTo: '/welcome'},
   { path: 'welcome', component: WelcomeComponent},
   { path: 'course', component: CourseListComponent},
   { path: 'score', component: ScorecardComponent},
   { path: 'end-game', component: EndGameComponent},
   { path: '**', redirectTo: '/welcome' }
-  // { path: 'contact/:id', component: ContactEditComponent },
-  // { path: '**', redirectTo: '' }                  // <-- redirect to the list now
+
 ];
 
 @NgModule({

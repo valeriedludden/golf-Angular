@@ -3,7 +3,6 @@ import {Hole} from "../model/hole";
 
 
 export interface Course {
-  //courseName: string;
   courseId: number;
   playerArray: Array<Player>;
   teeType: number;

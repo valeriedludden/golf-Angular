@@ -21,7 +21,6 @@
 
       <div fxLayout="row" fxLayoutAlign="start start">
         <span >{{ hole.par}}</span><span>{{hole.yards}}</span><span>{{hole.hcp}}</span>
-        <!--<span >{{game.holeArray[index].par}}</span><span>{{game.holeArray[index].yards}}</span><span>{{game.holeArray[index].hcp}}</span>-->
       </div>
 
       <mat-card>
@@ -30,8 +29,6 @@
           <span class="holeInfoHeader">Score</span>
         </div>
         <div  *ngFor="let player of game?.playerArray; index as p" fxLayout="row" fxLayoutAlign="center center">
-        <!--<div  *ngFor="let player of players; index as p" fxLayout="row" fxLayoutAlign="center center">-->
-          <!--<span>Player {{ p }}</span>-->
           <span>{{player.name}}</span>
            <span fxLayout="row" fxLayoutAlign="center center"> <mat-form-field>
 
@@ -42,39 +39,7 @@
 
       </div></mat-card>
 
-      <!--<div *ngFor="let player of players; index as p">-->
-
-      <!--</div>-->
     </mat-card-content>
     </mat-card>
   </mat-card>
 <button mat-button class="final" [routerLink]="['/end-game']">Final Score</button>
-
-
-
-
-<!--<mat-card *ngFor="let player of players"> {{ getInScore(player.scoreArray) }} </mat-card>-->
-<!--<mat-card *ngFor="let hole of holes; index as index">-->
-  <!--<mat-card-content>-->
-    <!--<table>-->
-      <!--<thead>-->
-      <!--<h3> Hole {{index}}</h3>-->
-      <!--</thead>-->
-      <!--<tbody>-->
-
-      <!--<th *ngFor="let player of players; index as p">{{player.name}}</th>  <th>Par</th><th>Yards</th><th>HCP</th>-->
-      <!--<td></td>-->
-      <!--<tr>-->
-        <!--<th>Score</th>-->
-        <!--<td *ngFor="let player of players; index as p"><mat-form-field>-->
-          <!--<input matInput type="number"  (keyup)="updateGame()" [(ngModel)]="game.playerArray[p].scoreArray[index]">-->
-        <!--</mat-form-field></td>-->
-        <!--<td>{{game.holeArray[index].par}}</td>-->
-        <!--<td>{{game.holeArray[index].yards}}</td>-->
-        <!--<td>{{game.holeArray[index].hcp}}</td>-->
-      <!--</tr>-->
-
-      <!--</tbody>-->
-    <!--</table>-->
-  <!--</mat-card-content>-->
-<!--</mat-card>-->

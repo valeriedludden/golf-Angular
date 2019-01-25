@@ -10,10 +10,6 @@ import {Player} from "../model/player";
 })
 export class EndGameComponent implements OnInit {
 
-  // get game(): Course{
-  //   return this.courseService.game;
-  // }
-
   courseInfo: object;
   parTotal: number = 0;
   parInTotal: number = 0;
@@ -33,18 +29,8 @@ export class EndGameComponent implements OnInit {
   ngOnInit() {
     this.courseService.getCourseObservable().subscribe(data => {
       this.game = data;
-      // this.setValues();
     });
 }
-
-  setValues() {
-
-    // this.players = this.game.playerArray;
-    // this.holes = this.game.holeArray;
-  }
-  // updateGame(){
-  //   this.courseService.saveGame(this.courseService.game);
-  // }
 
   getInScore(scoreArray) {
     let total = 0;

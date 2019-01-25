@@ -5,10 +5,6 @@ import {Observable, of} from "rxjs";
 import {Course} from "../course/course";
 import {AngularFireDatabase, AngularFireObject, SnapshotAction} from "@angular/fire/database";
 import {map} from "rxjs/operators";
-import {Player} from "../model/player";
-import {Hole} from "../model/hole";
-import {Company} from "../../../../angularfire-example/src/app/models/company";
-
 
 
 @Injectable({
@@ -16,7 +12,6 @@ import {Company} from "../../../../angularfire-example/src/app/models/company";
 })
 
 export class CourseService {
-  // private holeRef: AngularFireObject<Course>;
   game: Course;
 
   private courseUrl = 'https://golf-courses-api.herokuapp.com/courses';
@@ -36,17 +31,6 @@ export class CourseService {
   saveGame(game: Course) {
     this.db.object<Course>(`game`).set(game);
   }
-
-  // getCourseObservable(): Observable<Course>{
-  //   return this.gameRef.snapshotChanges();
-  // }
-
-  // getHoleObservable(): Observable<object> {
-  //   // return this.db.object<any>(`game.holeArray`).snapshotChanges();
-  //   return this.db.object<any>(`game.holeArray`).snapshotChanges();
-  // }
-
-
 
   getCourseObservable() {
     return this.db.object<Course>(`game`).snapshotChanges()

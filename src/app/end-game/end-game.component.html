@@ -18,7 +18,7 @@
 <!--<mat-card *ngFor="let player of players"> {{ getInScore(player.scoreArray) }} </mat-card>-->
 <mat-card>
 </mat-card>
-<mat-card *ngFor="let player of players; index as index">
+<mat-card *ngFor="let player of game?.playerArray; index as index">
   <mat-card-title>Player {{ index + 1 }} {{ player.name }}</mat-card-title>
 
   <mat-card-content>
@@ -28,7 +28,10 @@
     <div>In Score: </div><div>{{ getInScore(player.scoreArray) }}</div>
   </mat-card-content>
   <mat-card-content>
-    <div> Course Par:</div><div>{{ game.parTotal}}</div><div> Player Score: </div><div>{{ getTotalScore(player.scoreArray) }}</div>
+    <div> Course Par:</div><div>{{ game.parTotal }}</div>
+  </mat-card-content>
+  <mat-card-content>
+    <div> Player Score: </div><div>{{ getTotalScore(player.scoreArray) }}</div>
   </mat-card-content>
   <mat-card-content>
     <div>Par Comparison: </div><div>{{ getParComparison(player.scoreArray) }}</div>
@@ -37,3 +40,5 @@
 
 
 </mat-card>
+
+<div><span><button mat-button class="final" [routerLink]="['/welcome']">Play Again</button></span></div>

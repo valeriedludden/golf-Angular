@@ -1,9 +1,4 @@
-/*.image {*/
-  /*background-image: url("../../assets/golf.jpeg");*/
-  /*background-size: cover;*/
-  /*background-repeat: no-repeat;*/
-  /*background-position: center;*/
-/*}*/
+
 mat-card{
   alignment: center;
   width: 70%;
@@ -19,14 +14,19 @@ h1 {
 .mat-button{
   background-color: #37966f;
   /*background-color: #5ad5a6;*/
-  margin: 10px auto;
-  position: center;
+  margin: 20px;
+
 }
 mat-card{
   align-items: center;
 }
 div{
   alignment: center;
-  margins: autp;
+  margins: aut0;
   /*width: 60%;*/
+}
+span{
+  margin: auto;
+  display: block;
+  width: 60%;
 }

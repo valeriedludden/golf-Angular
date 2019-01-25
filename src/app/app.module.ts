@@ -29,7 +29,7 @@ import {FlexLayoutModule} from "@angular/flex-layout";
     WelcomeComponent,
     ScorecardComponent,
     CourseListComponent,
-    EndGameComponent,
+    EndGameComponent
   ],
   imports: [
     BrowserModule,

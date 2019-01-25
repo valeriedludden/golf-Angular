@@ -1,20 +1,27 @@
 <h1>Player Score Card</h1>
-  <mat-card class="hole" *ngFor="let hole of holes; index as index">
+<div class="topDiv">
+    <span class="topSpan">
+    <button mat-button class="final" [routerLink]="['/welcome']">Pause Game</button>
+    <button mat-button class="final" [routerLink]="['/end-game']">Final Score</button>
+  </span>
+</div>
+
+  <mat-card class="hole" *ngFor="let hole of game?.holeArray; index as index">
    <mat-card class="title">
-     <mat-card-title fxLayoutAlign="center center"> Hole {{index + 1 }}</mat-card-title>
+     <mat-card-title fxLayoutAlign="center center"> Hole  {{ index + 1}} </mat-card-title>
    </mat-card>
     <mat-card>
 
 
     <mat-card-content>
-      <!--<mat-card-header fxLayoutAlign="center center">Hole Information</mat-card-header>-->
 
       <div class="holeInfoHeader" fxLayout="row" fxLayoutAlign="start start">
         <span >Hole Par</span><span>Yards</span><span>hcp</span>
       </div>
 
       <div fxLayout="row" fxLayoutAlign="start start">
-        <span >{{game.holeArray[index].par}}</span><span>{{game.holeArray[index].yards}}</span><span>{{game.holeArray[index].hcp}}</span>
+        <span >{{ hole.par}}</span><span>{{hole.yards}}</span><span>{{hole.hcp}}</span>
+        <!--<span >{{game.holeArray[index].par}}</span><span>{{game.holeArray[index].yards}}</span><span>{{game.holeArray[index].hcp}}</span>-->
       </div>
 
       <mat-card>
@@ -22,12 +29,13 @@
           <span class="holeInfoHeader">Player</span>
           <span class="holeInfoHeader">Score</span>
         </div>
-        <div  *ngFor="let player of players; index as p" fxLayout="row" fxLayoutAlign="center center">
+        <div  *ngFor="let player of game?.playerArray; index as p" fxLayout="row" fxLayoutAlign="center center">
+        <!--<div  *ngFor="let player of players; index as p" fxLayout="row" fxLayoutAlign="center center">-->
           <!--<span>Player {{ p }}</span>-->
           <span>{{player.name}}</span>
            <span fxLayout="row" fxLayoutAlign="center center"> <mat-form-field>
 
-            <input  matInput type="number" (keyup)="updateGame()" [(ngModel)]="game.playerArray[p].scoreArray[index]">
+            <input  matInput type="number" (keyup)="updateGame()" (click)="updateGame()" [(ngModel)]="player.scoreArray[index]">
 
            </mat-form-field></span>
 

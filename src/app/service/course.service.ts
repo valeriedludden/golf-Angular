@@ -7,6 +7,7 @@ import {AngularFireDatabase, AngularFireObject, SnapshotAction} from "@angular/f
 import {map} from "rxjs/operators";
 import {Player} from "../model/player";
 import {Hole} from "../model/hole";
+import {Company} from "../../../../angularfire-example/src/app/models/company";
 
 
 
@@ -15,14 +16,13 @@ import {Hole} from "../model/hole";
 })
 
 export class CourseService {
-  private gameRef: AngularFireObject<Course>;
+  // private holeRef: AngularFireObject<Course>;
   game: Course;
-  newGame: boolean;
 
   private courseUrl = 'https://golf-courses-api.herokuapp.com/courses';
 
   constructor(private http: HttpClient, private db: AngularFireDatabase) {
-    this.gameRef = this.db.object<Course>(`game`);
+
   }
 
   getCourseAPI(): Observable<object> {
@@ -32,14 +32,24 @@ export class CourseService {
   getCourse(id: number): Observable<object> {
     return this.http.get<object>(this.courseUrl + `/${id}`);
   }
-  saveGame(game: Course){
-    this.gameRef.set(game);
+
+  saveGame(game: Course) {
+    this.db.object<Course>(`game`).set(game);
   }
-  isNewGame (): boolean{
-    return this.newGame = true;
-}
-  getGameObservable(game) {
-    return this.gameRef.snapshotChanges()
+
+  // getCourseObservable(): Observable<Course>{
+  //   return this.gameRef.snapshotChanges();
+  // }
+
+  // getHoleObservable(): Observable<object> {
+  //   // return this.db.object<any>(`game.holeArray`).snapshotChanges();
+  //   return this.db.object<any>(`game.holeArray`).snapshotChanges();
+  // }
+
+
+
+  getCourseObservable() {
+    return this.db.object<Course>(`game`).snapshotChanges()
       .pipe(
         map((item: SnapshotAction<Course>): Course => {
           return {
@@ -57,5 +67,4 @@ export class CourseService {
       );
   }
 }
-
 

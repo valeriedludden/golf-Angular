@@ -20,7 +20,7 @@ export class CourseListComponent implements OnInit {
   courseId: number;
   id: number;
   selectedTeeBox: any;
-  hole: any;
+  hole: Course [];
   numPlayer: number;
   playerArray: Array<Player> = [];
   holeArray: Array<Hole> = [];
@@ -59,7 +59,7 @@ export class CourseListComponent implements OnInit {
         // parComparison: 0,
         id: i,
         // scoreArray: this.scoreArray
-        scoreArray: [2,4,6,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+        scoreArray: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
       };
     }
   }

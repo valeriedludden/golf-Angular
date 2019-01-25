@@ -25,3 +25,12 @@ input{
 .final{
   background-color: #fd5523;
 }
+button{
+  margin: auto;
+  display: block;
+}
+.topSpan{
+  display: flex;
+  margin: auto;
+  width: 80%;
+}

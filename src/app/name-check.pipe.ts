@@ -15,7 +15,6 @@ export class NameCheckPipe implements PipeTransform {
   this.courseService.getCourseObservable().subscribe(data => {
       this.game = data;
       this.playerArray = this.game.playerArray;
-      console.log(this.game);
     })
   }
 
@@ -28,7 +27,6 @@ export class NameCheckPipe implements PipeTransform {
           }
         }
       }
-      console.log("VALUE" + this.courseService.game.playerArray[i].name);
 
     }
     this.courseService.saveGame(this.courseService.game);

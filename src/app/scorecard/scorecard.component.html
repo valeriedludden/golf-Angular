@@ -28,15 +28,14 @@
           <span class="holeInfoHeader">Player</span>
           <span class="holeInfoHeader">Score</span>
         </div>
-        <div  *ngFor=" let player of (game?.playerArray | nameCheck); index as p;" fxLayout="row" fxLayoutAlign="center center">
+        <div  *ngFor=" let player of (game?.playerArray); index as p;" fxLayout="row" fxLayoutAlign="center center">
+        <!--<div  *ngFor=" let player of (game?.playerArray | nameCheck); index as p;" fxLayout="row" fxLayoutAlign="center center">-->
           <span>{{player.name}}</span>
            <span fxLayout="row" fxLayoutAlign="center center"> <mat-form-field>
 
-            <input  matInput type="number" (keyup)="updateGame()" (click)="updateGame()" [(ngModel)]="player.scoreArray[index]">
+            <input  matInput type="number" (change)="updateGame()" [(ngModel)]="game.playerArray[p].scoreArray[index]">
 
            </mat-form-field></span>
-
-
       </div></mat-card>
 
     </mat-card-content>

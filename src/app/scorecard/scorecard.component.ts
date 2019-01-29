@@ -100,6 +100,7 @@ export class ScorecardComponent implements OnInit, OnChanges {
   }
 
     updateGame(){
+    console.log(this.game.playerArray);
       this.courseService.saveGame(this.game);
     }
 
